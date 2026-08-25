@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="Functional USD Account demo app">
+<link rel="manifest" href="manifest.json">
+<title>USD Account</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="app" id="app">
+  <header class="header">
+    <button class="icon" aria-label="Back" id="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <div class="title">USD Account</div>
+    <button class="icon" aria-label="Menu" id="menu"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.9"/><circle cx="12" cy="12" r="1.9"/><circle cx="12" cy="19" r="1.9"/></svg></button>
+  </header>
+
+  <section class="balance">
+    <div class="amount" id="amount">$6,962<span class="cents">.24</span></div>
+    <div class="ledger">Ledger balance: <b id="ledger">$6,742.35</b> ●</div>
+    <div class="account-id">4350492302021</div>
+  </section>
+
+  <section class="actions">
+    <button class="btn add" id="add">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Add Cash
+    </button>
+    <button class="btn exchange" id="exchange">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 3 21 7 17 11"/><line x1="21" y1="7" x2="3" y2="7"/><polyline points="7 13 3 17 7 21"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      Exchange
+    </button>
+    <button class="btn send" id="send">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      Send Money
+    </button>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Analytics</div>
+    <div class="analytics">
+      <div class="metric">
+        <div class="metric-icon income"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="18" x2="18" y2="6"/><polyline points="8 6 18 6 18 16"/></svg></div>
+        <div><div class="metric-label">Income</div><div class="metric-value">$28,520.99</div></div>
+      </div>
+      <div class="metric">
+        <div class="metric-icon spending"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><polyline points="18 8 18 18 8 18"/></svg></div>
+        <div><div class="metric-label">Spending</div><div class="metric-value">$33,762.03</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Recent Transactions</div>
+    <div class="transactions" id="transactions">
+      <div class="txn">
+        <div class="txn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+        <div><div class="txn-name">Visa to Maldives</div><div class="txn-sub">Transfer ○</div></div>
+        <div class="txn-amt">-$1,225.20<div class="txn-rate">-₦735,000.00</div></div>
+      </div>
+      <div class="txn">
+        <div class="txn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 20 7 16 11"/><line x1="20" y1="7" x2="4" y2="7"/><polyline points="8 13 4 17 8 21"/><line x1="4" y1="17" x2="20" y2="17"/></svg></div>
+        <div><div class="txn-name">Dollar → Naira</div><div class="txn-sub">Exchange ○</div></div>
+        <div class="txn-amt">-$900.00<div class="positive">-₦5,450,030.20</div></div>
+      </div>
+      <div class="txn">
+        <div class="txn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></div>
+        <div><div class="txn-name">Salary Deposit</div><div class="txn-sub">Incoming ○</div></div>
+        <div class="txn-amt positive">+$4,250.00</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bottom">Demo account • interactions are local only</div>
+</main>
+
+<div class="modal" id="modal">
+  <div class="sheet" id="sheet">
+    <div class="modal-icon">
+      <svg class="icon-add" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      <svg class="icon-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+    </div>
+    <h2 id="modalTitle">Add Cash</h2>
+    <p id="modalDesc">Enter an amount to add to your USD balance.</p>
+    <div class="field">
+      <label for="input">Amount (USD)</label>
+      <div class="amount-input">
+        <span class="prefix">$</span>
+        <input id="input" type="number" min="0.01" step="0.01" value="100">
+      </div>
+      <div class="quick-amounts" id="quickAmounts"></div>
+    </div>
+    <div class="sheet-actions">
+      <button class="cancel" id="cancel">Cancel</button>
+      <button class="confirm" id="confirm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span id="confirmLabel">Confirm</span>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>

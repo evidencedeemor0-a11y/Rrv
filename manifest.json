@@ -1,0 +1,10 @@
+{
+  "name": "USD Account",
+  "short_name": "USD Account",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "description": "Functional USD Account demo app",
+  "icons": []
+}
